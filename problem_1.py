@@ -18,7 +18,7 @@ def sqrt(number):
 
     return result
 
-# Test cases
+# Test cases normal
 print("Pass" if (10 == sqrt(100)) else "Fail")     # Expected output: Pass (sqrt(100) = 10)
 print("Pass" if (77 == sqrt(5929)) else "Fail")    # Expected output: Pass (sqrt(5929) = 77)
 print("Pass" if (91 == sqrt(8281)) else "Fail")    # Expected output: Pass (sqrt(8281) = 91)
@@ -26,3 +26,10 @@ print("Pass" if (25 == sqrt(625)) else "Fail")     # Expected output: Pass (sqrt
 print("Pass" if (9 == sqrt(100)) else "Fail")      # Expected output: Fail (sqrt(100) = 10)
 print("Pass" if (0 == sqrt(1)) else "Fail")        # Expected output: Pass (sqrt(1) = 1)
 print("Pass" if (1 == sqrt(1)) else "Fail")        # Expected output: Pass (sqrt(1) = 1)
+# Test for a large input number
+print("Pass" if (1000 == sqrt(1000000)) else "Fail")  # Expected output: Pass (sqrt(1000000) = 1000)
+# Test for a null input
+print("Pass" if (0 == sqrt(0)) else "Fail")          # Expected output: Pass (sqrt(0) = 0)
+# TTest for a negative input number 
+print("Pass" if (-1 == sqrt(-100)) else "Fail")      # Expected output: Pass (sqrt(-100) = -1)
+

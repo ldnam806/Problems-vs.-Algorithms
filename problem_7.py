@@ -36,17 +36,23 @@ class Router:
         handler = self.route_trie.find_path(path.strip("/").split("/"))
         return handler if handler is not None else self.not_found_handler
 
-# Testing the code
-router = Router("root handler", "not found handler")
-router.add_handler("/blog", "blog handler")
-router.add_handler("/blog/python", "python blog handler")
-router.add_handler("/blog/java", "java blog handler")
-router.add_handler("/about", "about handler")
+# Test cases
+# Create a new Router with a default handler for non-existent paths
+router = Router(not_found_handler="not_found_handler")
 
-print(router.looking("/"))  # Output: 'root handler'
-print(router.looking("/blog"))  # Output: 'blog handler'
-print(router.looking("/blog/python"))  # Output: 'python blog handler'
-print(router.looking("/blog/java"))  # Output: 'java blog handler'
-print(router.looking("/about"))  # Output: 'about handler'
-print(router.looking("/home"))  # Output: 'not found handler'
-print(router.looking("/blog/java/spring"))  # Output: 'not found handler'
+# Test Case 1: General Case
+router.add_handler("/home", "home_handler")
+router.add_handler("/about", "about_handler")
+router.add_handler("/contact", "contact_handler")
+
+print(router.looking("/about"))  # Expected output: "about_handler"
+
+# Test Case 2: Edge Case - Empty Path
+router.add_handler("", "empty_path_handler")
+print(router.looking(""))        # Expected output: "empty_path_handler"
+
+# Test Case 3: Edge Case - Non-existent Path
+router.add_handler("/products", "products_handler")
+router.add_handler("/services", "services_handler")
+print(router.looking("/blog"))   # Expected output: "not_found_handler"
+

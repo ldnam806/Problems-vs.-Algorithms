@@ -31,21 +31,18 @@ def linear_search(input_list, number):
             return index
     return -1
     
-def test_function(test_case):
-    input_list = test_case[0]
-    number = test_case[1]
-    if linear_search(input_list, number) == rotated_array_search(input_list, number):
-        print("Pass")
-    else:
-        print("Fail")
-
 # Test cases
-test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 6])  # Pass
-test_function([[6, 7, 8, 9, 10, 1, 2, 3, 4], 1])  # Pass
-test_function([[6, 7, 8, 1, 2, 3, 4], 8])          # Pass
-test_function([[6, 7, 8, 1, 2, 3, 4], 1])          # Pass
-test_function([[6, 7, 8, 1, 2, 3, 4], 10])         # Pass
+test_case_1 = ([4, 5, 6, 7, 0, 1, 2], 1)  # General case
+test_case_2 = ([], 5)                     # Edge case - Empty input
+test_case_3 = (list(range(1000000)), 999999)  # Edge case - Very large array
 
-# Test cases 100
-test_function([[6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100], 100])  # Pass
+# Expected outputs
+expected_output_1 = 5
+expected_output_2 = -1
+expected_output_3 = 999999
+
+# Testing the function with the test cases
+print("Test Case 1:", "Pass" if rotated_array_search(*test_case_1) == expected_output_1 else "Fail")
+print("Test Case 2:", "Pass" if rotated_array_search(*test_case_2) == expected_output_2 else "Fail")
+print("Test Case 3:", "Pass" if rotated_array_search(*test_case_3) == expected_output_3 else "Fail")
 

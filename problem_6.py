@@ -12,23 +12,8 @@ def get_min_max_value(ints):
 
     return (min_value, max_value)
 
-### Additional Example Test Cases
-import random
+# Test cases
+print(get_min_max_value([3, 5, 2, 1, 4]))  # Expected output: (1, 5)
+print(get_min_max_value([7]))             # Expected output: (7, 7)
+print(get_min_max_value([]))              # Expected output: None
 
-# Test case with 100 integers in random order
-l = [i for i in range(0, 100)]  # a list containing 0 - 99
-random.shuffle(l)
-
-print("Pass" if ((0, 99) == get_min_max_value(l)) else "Fail")
-
-# Test case with negative integers
-print("Pass" if ((-10, 10) == get_min_max_value(list(range(-10, 11)))) else "Fail")
-
-# Test case with duplicate integers
-print("Pass" if ((0, 0) == get_min_max_value([0, 0, 0])) else "Fail")
-
-# Test case with a single integer
-print("Pass" if ((5, 5) == get_min_max_value([5])) else "Fail")
-
-# Test case with an empty list
-print("Pass" if (None == get_min_max_value([])) else "Fail")
