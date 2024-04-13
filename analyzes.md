@@ -76,30 +76,35 @@ For linear_search, it's O(N), where N is the number of elements in the input lis
 Space Complexity: Both functions have a space complexity of O(1) since they only use a fixed amount of extra space regardless of the size of the input list.
 
 #3 Rearrange Array Digits
-`rearrange_digits_max_sum`:
 def rearrange_digits_max_sum(input_list):
-This line defines the beginning of the function rearrange_digits_max_sum, which takes one argument, input_list.
     if len(input_list) <= 1:
         return input_list
-This conditional check takes constant time O(1) because it only involves checking the length of the input list.
-    def find_max_min(arr):
-        max_num, min_num = float('-inf'), float('inf')
+Time Complexity: Checking the length of the input list takes constant time, O(1).
+Space Complexity: No additional space is used here, so it's O(1).
+
+def find_max_min(arr):
+    max_num, min_num = float('-inf'), float('inf')
         for num in arr:
             if num > max_num:
                 max_num = num
             if num < min_num:
                 min_num = num
         return max_num, min_num
-The find_max_min function iterates through the input list to find the maximum and minimum elements. It iterates through each element once, resulting in linear time complexity O(N), where N is the length of the input list.
+Time Complexity: This function iterates over the input list once, so its time complexity is O(N), where N is the length of the input list.
+Space Complexity: It uses only two variables (max_num and min_num), so it's O(1).
+
     max_num, min_num = find_max_min(input_list)
-Calling the find_max_min function takes linear time O(N) because it iterates through the input list once.
+Time Complexity: Calling the find_max_min function takes O(N) time.
+Space Complexity: It creates two variables, so it's O(1).
+
     frequency = [0] * 10
     for num in input_list:
         frequency[num] += 1
-These lines initialize a frequency array and iterate through the input list to count the frequency of each digit. It iterates through each element once, resulting in linear time complexity O(N), where N is the length of the input list.
+Time Complexity: This loop iterates over the input list once, so it's O(N).
+Space Complexity: The frequency list has a constant size (10 elements), so it's O(1).
+
     num1, num2 = 0, 0
     is_first_num = True
-Initializing two variables num1 and num2 takes constant time O(1).
     for digit in range(9, -1, -1):
         while frequency[digit] > 0:
             if is_first_num:
@@ -108,13 +113,15 @@ Initializing two variables num1 and num2 takes constant time O(1).
                 num2 = num2 * 10 + digit
             frequency[digit] -= 1
             is_first_num = not is_first_num
-These lines construct the two numbers based on their frequencies. The outer loop runs 10 times, and the inner loop runs at most N times (the length of the input list). Therefore, the time complexity of these lines is O(N) because the dominant factor is the inner loop.
+Time Complexity: This loop iterates over a constant range (from 9 to 0) and a constant number of times (10 times). Inside the loop, the while loop iterates based on the frequency of each digit, but the total number of iterations across all digits sums up to N, so it's O(N).
+Space Complexity: It uses a few variables (num1, num2, is_first_num), but they don't depend on the input size, so it's O(1).
     return [num1, num2]
-Finally, returning the two numbers takes constant time O(1).
+Time Complexity: Constructing and returning a list of constant size takes constant time, O(1).
+Space Complexity: The space complexity of the output list is O(1) because it contains a fixed number of elements.
 
-Overall:
+To summarize:
 Time Complexity: The overall time complexity of the rearrange_digits_max_sum function is O(N), where N is the length of the input list.
-Space Complexity: The space complexity of the function is O(1) because it only uses a fixed amount of extra space regardless of the size of the input list.
+Space Complexity: The space complexity is O(1) because the function uses only a constant amount of extra space regardless of the size of the input list.
 
 #4 Dutch National Flag Problem
 `sort_array` function:
